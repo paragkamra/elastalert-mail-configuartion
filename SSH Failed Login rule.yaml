@@ -1,0 +1,31 @@
+# From example_rules/examples_frequency.yaml
+es_host: localhost
+es_port: 9200
+name: example rule
+type: frequency
+index: logstash-ssh-*
+num_events: 1
+timeframe:
+  hours: 1
+filter:
+ - term:
+      _type: ssh
+
+ - term:
+      outcome: Failed
+
+filter:
+ - query:
+    query_string:
+      query: "username:<username>"
+
+alert:
+  - "email"
+
+
+smtp_host: 'smtp.office365.com'
+smtp_port: 587
+from_addr: 'Sender Email Address'
+smtp_auth_file: '/home/ubuntu/elastalert/smtp_auth_file.yaml'
+email:
+  -  "paragkamra1994@gmail.com"
