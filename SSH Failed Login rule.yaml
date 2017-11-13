@@ -28,4 +28,4 @@ smtp_port: 587
 from_addr: 'Sender Email Address'
 smtp_auth_file: '/home/ubuntu/elastalert/smtp_auth_file.yaml'
 email:
-  -  "paragkamra1994@gmail.com"
+  -  "receipent Email Address"
